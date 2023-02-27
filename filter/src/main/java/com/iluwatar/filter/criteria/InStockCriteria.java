@@ -9,6 +9,12 @@ import java.util.List;
  */
 public class InStockCriteria implements Criteria<Product> {
 
+  /**
+   * Overrides method meetCriteria from interface Criteria.
+   * Filters out items that are in stock.
+   * @param items the list of items to filter
+   * @return the list of items in stock
+   */
   @Override
   public List<Product> meetCriteria(List<Product> items) {
     List<Product> inStockProducts = new ArrayList<>();
