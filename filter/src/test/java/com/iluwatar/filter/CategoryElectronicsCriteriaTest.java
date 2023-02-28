@@ -34,8 +34,16 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Tests for category electronics criteria.
+ */
+
 public class CategoryElectronicsCriteriaTest {
 
+    /***
+     * Test when some items meets criteria.
+     * Asserts that resulting arraylist contains the two products with product category electronics.
+     */
     @Test
     void testSomeMeetCriteria(){
         CategoryElectronicsCriteria criteria = new CategoryElectronicsCriteria();
@@ -53,6 +61,10 @@ public class CategoryElectronicsCriteriaTest {
         Assert.assertEquals(criteriaRes, electronicProducts);
     }
 
+    /***
+     * Test when no items meets criteria.
+     * Asserts that resulting arraylist is empty.
+     */
     @Test
     void testNoneMeetsCriteria(){
         CategoryElectronicsCriteria criteria = new CategoryElectronicsCriteria();
@@ -66,6 +78,10 @@ public class CategoryElectronicsCriteriaTest {
         Assert.assertEquals(criteriaRes, electronicProducts);
     }
 
+    /***
+     * Test when all items meet criteria.
+     * Asserts that resulting arraylist contains all elements.
+     */
     @Test
     void testAllMeetCriteria(){
         CategoryElectronicsCriteria criteria = new CategoryElectronicsCriteria();
