@@ -27,29 +27,27 @@ package com.iluwatar.filter.criteria;
 
 import com.iluwatar.filter.product.Product;
 import com.iluwatar.filter.product.ProductCategory;
-
 import java.util.ArrayList;
 import java.util.List;
 
-/***
+/**
  * A class for filtering clothing items.
  */
-
 public class CategoryClothingCriteria implements Criteria<Product> {
 
-    /***
-     * Overrides method meetCriteria. Items meet criteria if the product category is clothing.
-     * @param items the list of items to filter
-     * @return a list of items that meets the criteria
-     */
-    @Override
-    public List<Product> meetCriteria(List<Product> items) {
-        List<Product> clothingProducts = new ArrayList<>();
-        for (Product product : items) {
-            if (product.getCategory() == ProductCategory.CLOTHING) {
-                clothingProducts.add(product);
-            }
-        }
-        return clothingProducts;
+  /**
+   * Overrides method meetCriteria. Items meet criteria if the product category is clothing.
+   * @param items the list of items to filter
+   * @return a list of items that meets the criteria
+   */
+  @Override
+  public List<Product> meetCriteria(List<Product> items) {
+    List<Product> clothingProducts = new ArrayList<>();
+    for (Product product : items) {
+      if (product.getCategory() == ProductCategory.CLOTHING) {
+        clothingProducts.add(product);
+      }
     }
+    return clothingProducts;
+  }
 }
