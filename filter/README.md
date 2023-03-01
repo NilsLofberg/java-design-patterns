@@ -93,7 +93,7 @@ public class App {
 ```
 
 ## Class diagram
-
+![alt text](./etc/filter.png "Filter")
 
 ## Applicability
 Use the filter pattern in the following situations.
@@ -108,7 +108,11 @@ several or more criterias.
 * [Filter builders in MongoDB](https://www.mongodb.com/docs/drivers/java/sync/current/fundamentals/builders/filters/)
 
 ## Consequences
->  
+* Pros
+>  It is easy to add new / remove filtering criteria to the code, allowing flexibility and maintainability the code.
+* Cons 
+> Perfomance could be an issue if several criterias are applied and filtering on a large set.
 ## Related patterns
-
+* Specification
 ## Credits
+[David Sky, Structural Patterns - Filter/Criteria](https://davidskyspace.com/structural-patterns-filter-criteria/)
