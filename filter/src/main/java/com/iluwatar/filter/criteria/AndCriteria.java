@@ -31,23 +31,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Filters based on category, filters out electronic products.
- * Implements Criteria and overrides method meetCriteria.
+ * A class for filtering on multiple Criteria.
+ * @param criteria the list of criteria to meet
  */
-public class CategoryElectronicsCriteria implements Criteria<Product> {
+public class AndCriteria implements Criteria<Product> {
+
+  List<Criteria> criteria;
+
+  public AndCriteria(List<Criteria> criteria) {
+    this.criteria = criteria;
+  }
+
   /**
-   * Overrides method meetCriteria from Criteria. Filters out products that does not belong to category electronics.
+   * Overrides method meetCriteria. Items meet criteria if the Item meets all criteria in criteria
    * @param items the list of items to filter
-   * @return the list of items with category as category
+   * @return a list of items that meets the criteria
    */
   @Override
   public List<Product> meetCriteria(List<Product> items) {
-    List<Product> electronicProducts = new ArrayList<>();
-    for (Product product : items) {
-      if (product.getCategory() == ProductCategory.ELECTRONICS) {
-        electronicProducts.add(product);
-      }
+ 
+    List<Product> metCriteria = items;
+    for (Criteria criterion : criteria) {
+      metCriteria = criterion.meetCriteria(metCriteria);
     }
-    return electronicProducts;
+    
+    return metCriteria;
   }
+
 }
